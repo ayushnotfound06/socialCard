@@ -1,0 +1,234 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #0b0f1a;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.catgifs > img{
+    width: 50px;
+    position: absolute;
+
+    animation: moveX 4s linear infinite alternate,
+               moveY 3s linear infinite alternate;
+}
+.catgifs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100vw - 50px);
+  }
+}
+
+@keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100vh - 50px);
+  }
+}
+
+.catgifs img:nth-child(1){
+    animation-duration: 4s, 1s;
+}
+.catgifs img:nth-child(2){
+    animation-duration: 5s, 3s;
+}
+.catgifs img:nth-child(3){
+    animation-duration: 6s, 4s;
+}
+.catgifs img:nth-child(4){
+    animation-duration: 3s, 5s;
+}
+.catgifs img:nth-child(5){
+    animation-duration: 7s, 2.5s;
+}
+.catgifs img:nth-child(6){
+    animation-delay: 1s, 0.5s;
+}
+.catgifs img:nth-child(7){
+    animation-delay: 2s, 1s;
+}
+
+.cardBorder{
+    background: linear-gradient(135deg, #7c3aed, #d946ef);
+    border-radius: 25px;
+    width: 100%;
+    max-width: 500px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #111827;
+    border-radius: 25px;
+
+    width: 100%;
+    padding: 20px;
+}
+
+.card > img{
+    margin-top: 40px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #c70dfa;
+}
+
+.card > img:hover{
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f9fafb;
+    font-weight: 600;
+}
+
+p{
+    color: #9ca3af;
+    text-align: center;
+}
+
+form{
+    display: grid;
+    gap: 12px;
+    width: 100%;
+}
+
+button{
+    border-radius: 10px;
+    background-color: #1f2937;
+    border: none;
+    color: #e5e7eb;
+    font-weight: bolder;
+
+    width: 100%;
+    height: 50px;
+
+    cursor: pointer;
+}
+
+
+button:hover{
+    transform: scale(1.04);
+    background: linear-gradient(135deg, #7c3aed, #d946ef);
+}
+
+
+.insta{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.insta button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 0 8px;
+    font-size: 12px;
+    min-width: 0;
+}
+
+.insta i {
+    font-size: 13px;
+}
+
+@media (max-width: 550px){
+
+    .card{
+        padding: 15px;
+    }
+
+    img{
+        margin-top: 20px;
+        width: 80px;
+        height: 80px;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+
+    p{
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    button{
+        height: 45px;
+    }
+
+    .insta{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .insta button{
+        flex-direction: column;
+        gap: 2px;
+        height: auto;
+        padding: 6px 4px;
+
+        font-size: 10px;
+    }
+
+
+    .insta i{
+        font-size: 14px;
+    }
+
+    .insta span{
+        margin-bottom: 7px;
+        text-align: center;
+        font-size: 0.8em;
+        line-height: 1.1;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 350px){
+    .insta{
+        grid-template-columns: 1fr;
+    }
+}
